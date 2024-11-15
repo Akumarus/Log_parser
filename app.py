@@ -2,6 +2,7 @@ import tkinter as tk
 from data_loader import DataLoader
 from data_table import DataTable
 from data_process import DataProcess
+
 class App:
     def __init__(self, root):
         self.root = root
@@ -14,7 +15,7 @@ class App:
 
         # Фрейм для кнопки
         self.button_frame = tk.Frame(root)
-        self.button_frame.pack(side="top", fill="x", pady=10)
+        self.button_frame.pack(side="top", fill="x")
 
         # Фреймы
         self.table_frame = tk.Frame(root)
@@ -26,13 +27,13 @@ class App:
 
         # Кнопки
         self.load_button = tk.Button(self.button_frame, text="Загрузить файл", command=self.load_file)
-        self.load_button.pack(side="left", padx=(10, 5))
+        self.load_button.pack(side="left")
 
         self.parse_button = tk.Button(self.button_frame, text="Разделить ID", command=self.sort_table)
-        self.parse_button.pack(side="left", padx=5)
+        self.parse_button.pack(side="left")
 
         self.save_button = tk.Button(self.button_frame, text="Сохранить", command=self.save_table)
-        self.save_button.pack(side="left", padx=5)
+        self.save_button.pack(side="left")
 
     def load_file(self):
         self.df = self.data_loader.load_file()
@@ -41,11 +42,11 @@ class App:
 
     def sort_table(self):
         json_config = self.data_loader.load_json()
-        processed_df = self.data_process.process_table(self.df, json_config)
-        self.data_table.display_sort_id(processed_df)
+        self.processed_df = self.data_process.process_table(self.df, json_config)
+        self.data_table.display_sort_id(self.processed_df)
 
     def save_table(self):
-        self.data_loader.save_file(self.data_table.id_tables)
+        self.data_loader.save_file(self.processed_df)
 
 if __name__ == "__main__":
     root = tk.Tk()

@@ -32,29 +32,23 @@ class DataTable:
         for _, row in df.iterrows():
             self.table.insert("", "end", values=list(row))
 
-    def display_sort_id(self, df):
-        id_column = df["ID"]
-        unique_sorted_values = sorted(id_column.unique())
-        print(unique_sorted_values)
-
-        # Создаем словарь для хранения таблиц по каждому уникальному ID
-        self.id_tables = {unique_id: df[id_column == unique_id].copy() for unique_id in unique_sorted_values}
-
-        
-        for unique_id, self.id_table in self.id_tables.items():
+    def display_sort_id(self, processed_df):
+        for id, df in processed_df.items():
             # Создаем вкладку для каждого уникального ID
             id_frame = ttk.Frame(self.notebook)
-            self.notebook.add(id_frame, text=f"ID {unique_id}")
+            self.notebook.add(id_frame, text=f"ID{id}")
+
+            # Заменяем пробелы в названиях столбцов
+            columns = [col.replace(" ", "_") for col in df.columns]
 
             # Создаем виджет Treeview для отображения данных
-            columns1 = list(df.columns) 
-            table = ttk.Treeview(id_frame, columns=columns1, show="headings")
+            table = ttk.Treeview(id_frame, columns=columns, show="headings")
             table.pack(side="left", fill="both", expand=True)
 
             # Настройка заголовков таблицы
-            for col in columns1:
+            for col in columns:
                 table.heading(col, text=col)
-                table.column(col, anchor="center", width=50)
+                table.column(col, anchor="center",)
 
             # Создание полосы прокрутки
             scrollbar = tk.Scrollbar(id_frame, command=table.yview)
@@ -62,5 +56,6 @@ class DataTable:
             table.config(yscrollcommand=scrollbar.set)
 
             # Заполнение таблицы данными
-            for _, row in self.id_table.iterrows():
+            for _, row in df.iterrows():
                 table.insert("", "end", values=row.tolist())
+ 

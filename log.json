@@ -107,7 +107,7 @@
             {
                 "byte" : "6-7",
                 "variable" : "Краткий статус всех инверторов",
-                "format" : "Uint8",
+                "format" : "Uint16",
                 "unit" : null,
                 "coefficient" : 1,
                 "offset" : 0

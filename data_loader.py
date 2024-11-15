@@ -3,13 +3,15 @@ import json
 import pandas as pd
 from tkinter import filedialog
 
+csv_data = pd.read_csv("canbus.csv", sep=";", header=None, names=["Время", "ID"] + [f"Байт_{i}" for i in range(8)])
+
 class DataLoader:
     def load_file(self):
         df = None
-        file_path = filedialog.askopenfilename(filetypes=[("CSV", ".csv")])
+        file_path = filedialog.askopenfilename(filetypes=[(".CSV", ".csv")])
         if file_path:
             if file_path.endswith(".csv"):
-                df = pd.read_csv(file_path, delimiter=";", header=None)
+                df = pd.read_csv(file_path, sep=";", header=None, names=["Время", "ID"] + [f"Байт_{i}" for i in range(8)])
 
                 # Удаляет все строки с NaN
                 df = df.dropna()  
@@ -31,7 +33,9 @@ class DataLoader:
             # Сохраняем каждую таблицу в отдельный CSV-файл
             print("id: ", unique_id)
             print("id_table: ", id_table)
+            id_table = id_table.astype(str)
             file_path = os.path.join(folder_path, f"table_id_{unique_id}.csv")
-            id_table.to_csv(file_path, index=False, sep=';')
+            id_table.to_csv(file_path, encoding='utf-8-sig', index=False, sep=';')
+            #id_table.to_excel(file_path, index=False, engine='openpyxl')
             print(f"Сохранена таблица для ID {unique_id} в файл: {file_path}")
 
