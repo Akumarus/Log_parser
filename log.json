@@ -1,4 +1,67 @@
 {
+
+    "502" : {
+        "name" : "Gateway State PDO1",
+        "data" : [
+            {
+                "byte" : 0,
+                "variable" : "Время",
+                "format" : "Time",
+                "unit" : "сек",
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : 1,
+                "variable" : "ID",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : "2-3",
+                "variable" : "Исполняемое задание на скорость",
+                "format" : "Uint16",
+                "unit" : "%",
+                "coefficient" : 0.1,
+                "offset" : 0
+            },
+            {
+                "byte" : "4-5",
+                "variable" : "Исполняемое задание на поворот",
+                "format" : "Uint16",
+                "unit" : "%",
+                "coefficient" : 0.1,
+                "offset" : 0
+            },
+            {
+                "byte" : "6-7",
+                "variable" : "Краткий статус всех инверторов",
+                "format" : "Uint16",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : 8,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 9,
+                "variable" : "счетчик количества сообщений",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            }
+        ]
+    },
+
     "504" : {
         "name" : "Gateway State PDO2",
         "data" : [
@@ -49,68 +112,6 @@
                 "unit" : null,
                 "coefficient" : null,
                 "offset" : null
-            },
-            {
-                "byte" : 8,
-                "variable" : "Резерв",
-                "format" : "Uint8",
-                "unit" : null,
-                "coefficient" : null,
-                "offset" : null
-            },
-            {
-                "byte" : 9,
-                "variable" : "счетчик количества сообщений",
-                "format" : "Uint8",
-                "unit" : null,
-                "coefficient" : 1,
-                "offset" : 0
-            }
-        ]
-    },
-
-    "502" : {
-        "name" : "Gateway State PDO1",
-        "data" : [
-            {
-                "byte" : 0,
-                "variable" : "Время",
-                "format" : "Time",
-                "unit" : "сек",
-                "coefficient" : 1,
-                "offset" : 0
-            },
-            {
-                "byte" : 1,
-                "variable" : "ID",
-                "format" : "Uint8",
-                "unit" : null,
-                "coefficient" : 1,
-                "offset" : 0
-            },
-            {
-                "byte" : "2-3",
-                "variable" : "Исполняемое задание на скорость",
-                "format" : "Uint16",
-                "unit" : "%",
-                "coefficient" : 0.1,
-                "offset" : 0
-            },
-            {
-                "byte" : "4-5",
-                "variable" : "Исполняемое задание на поворот",
-                "format" : "Uint16",
-                "unit" : "%",
-                "coefficient" : 0.1,
-                "offset" : 0
-            },
-            {
-                "byte" : "6-7",
-                "variable" : "Краткий статус всех инверторов",
-                "format" : "Uint16",
-                "unit" : null,
-                "coefficient" : 1,
-                "offset" : 0
             },
             {
                 "byte" : 8,
@@ -301,5 +302,601 @@
                 "offset" : 0
             }
         ]
+    },
+
+    "702" : {
+        "name" : "PLC State PDO1",
+        "data" : [
+            {
+                "byte" : 0,
+                "variable" : "Время",
+                "format" : "Time",
+                "unit" : "сек",
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : 1,
+                "variable" : "ID",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : "2-3",
+                "variable" : "статус работы ПЛК",
+                "format" : "Uint16",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : "4-5",
+                "variable" : "Регистр DIN",
+                "format" : "Uint16",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : "6-7",
+                "variable" : "Регистр DOUT",
+                "format" : "Uint16",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : 8,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 9,
+                "variable" : "Счетчик количества сообщений",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            }
+        ]
+    },
+
+    "704" : {
+        "name" : "PLC State PDO2",
+        "data" : [
+            {
+                "byte" : 0,
+                "variable" : "Время",
+                "format" : "Time",
+                "unit" : "сек",
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : 1,
+                "variable" : "ID",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : "2-3",
+                "variable" : "Регистр аварий ПЛК",
+                "format" : "Uint16",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : 4,
+                "variable" : "Давление 1",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 50
+            },
+            {
+                "byte" : 5,
+                "variable" : "Давление 2",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 50
+            },
+            {
+                "byte" : 6,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 7,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 8,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 9,
+                "variable" : "Счетчик количества сообщений",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            }
+        ]
+    },
+
+    "706" : {
+        "name" : "PLC State PDO3",
+        "data" : [
+            {
+                "byte" : 0,
+                "variable" : "Время",
+                "format" : "Time",
+                "unit" : "сек",
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : 1,
+                "variable" : "ID",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : "2-3",
+                "variable" : "Ток АКБ",
+                "format" : "Uint16",
+                "unit" : "А",
+                "coefficient" : 10,
+                "offset" : 0
+            },
+            {
+                "byte" : 4,
+                "variable" : "Напряжение АКБ",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 50
+            },
+            {
+                "byte" : 5,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 6,
+                "variable" : "ПДУ Статус",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : 7,
+                "variable" : "ПДУ Поворот",
+                "format" : "Uint8",
+                "unit" : "%",
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : 8,
+                "variable" : "ПДУ Скорость",
+                "format" : "Uint8",
+                "unit" : "%",
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : 9,
+                "variable" : "Счетчик количества сообщений",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            }
+        ]
+    },
+
+    "708" : {
+        "name" : "PLC State PDO4",
+        "data" : [
+            {
+                "byte" : 0,
+                "variable" : "Время",
+                "format" : "Time",
+                "unit" : "сек",
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : 1,
+                "variable" : "ID",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : 2,
+                "variable" : "Температура ПЛК",
+                "format" : "Uint8",
+                "unit" : "Град",
+                "coefficient" : 1,
+                "offset" : 50
+            },
+            {
+                "byte" : 3,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 4,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 5,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 6,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 7,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 8,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 9,
+                "variable" : "Счетчик количества сообщений",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            }
+        ]
+    },
+
+    "710" : {
+        "name" : "Getway Control PDO1",
+        "data" : [
+            {
+                "byte" : 0,
+                "variable" : "Время",
+                "format" : "Time",
+                "unit" : "сек",
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : 1,
+                "variable" : "ID",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : "2-3",
+                "variable" : "Задание на скорость",
+                "format" : "Uint16",
+                "unit" : "%",
+                "coefficient" : 0.1,
+                "offset" : 0
+            },
+            {
+                "byte" : "4-5",
+                "variable" : "Задание на поворот",
+                "format" : "Uint16",
+                "unit" : "%",
+                "coefficient" : 0.1,
+                "offset" : 0
+            },
+            {
+                "byte" : 6,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 7,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 8,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 9,
+                "variable" : "Счетчик количества сообщений",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            }
+        ]
+    },
+
+    "712" : {
+        "name" : "Getway Control PDO2",
+        "data" : [
+            {
+                "byte" : 0,
+                "variable" : "Время",
+                "format" : "Time",
+                "unit" : "сек",
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : 1,
+                "variable" : "ID",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : 2,
+                "variable" : "Регистр управления",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : "3-4",
+                "variable" : "Задание отрицательного ограничения момента",
+                "format" : "Uint16",
+                "unit" : "%",
+                "coefficient" : 0.1,
+                "offset" : 0
+            },
+            {
+                "byte" : "5-6",
+                "variable" : "Задание отрицательного ограничения момента2",
+                "format" : "Uint16",
+                "unit" : "%",
+                "coefficient" : 0.1,
+                "offset" : 0
+            },
+            {
+                "byte" : 7,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 8,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 9,
+                "variable" : "Счетчик количества сообщений",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            }
+        ]
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+    "501" : {
+        "name" : "Getway Control PDO1",
+        "data" : [
+            {
+                "byte" : 0,
+                "variable" : "Время",
+                "format" : "Time",
+                "unit" : "сек",
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : 1,
+                "variable" : "ID",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : "2-3",
+                "variable" : "Задание на скорость",
+                "format" : "Uint16",
+                "unit" : "%",
+                "coefficient" : 0.1,
+                "offset" : 0
+            },
+            {
+                "byte" : "4-5",
+                "variable" : "Задание на поворот",
+                "format" : "Uint16",
+                "unit" : "%",
+                "coefficient" : 0.1,
+                "offset" : 0
+            },
+            {
+                "byte" : 6,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 7,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 8,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 9,
+                "variable" : "Счетчик количества сообщений",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            }
+        ]
+    },
+
+    "503" : {
+        "name" : "Getway Control PDO2",
+        "data" : [
+            {
+                "byte" : 0,
+                "variable" : "Время",
+                "format" : "Time",
+                "unit" : "сек",
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : 1,
+                "variable" : "ID",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : 2,
+                "variable" : "Регистр управления",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            },
+            {
+                "byte" : "3-4",
+                "variable" : "Задание отрицательного ограничения момента",
+                "format" : "Uint16",
+                "unit" : "%",
+                "coefficient" : 0.1,
+                "offset" : 0
+            },
+            {
+                "byte" : "5-6",
+                "variable" : "Задание отрицательного ограничения момента",
+                "format" : "Uint16",
+                "unit" : "%",
+                "coefficient" : 0.1,
+                "offset" : 0
+            },
+            {
+                "byte" : 7,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 8,
+                "variable" : "Резерв",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : null,
+                "offset" : null
+            },
+            {
+                "byte" : 9,
+                "variable" : "Счетчик количества сообщений",
+                "format" : "Uint8",
+                "unit" : null,
+                "coefficient" : 1,
+                "offset" : 0
+            }
+        ]
     }
+
 }
