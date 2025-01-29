@@ -39,7 +39,7 @@ class CsvHandler:
         os.makedirs(folder_path, exist_ok=True)
         
         for id, table in tables.items():
-            print(f"id: {id}")
+            #print(f"id: {id}")
             #print(f"table {table}")
             #file_path = os.path.join(folder_path, f"table id{id}.csv")
             #table.to_csv(file_path, encoding='utf-8-sig', index=False, sep=';')

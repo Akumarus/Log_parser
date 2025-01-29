@@ -1,5 +1,6 @@
 import json
 import pandas as pd
+import numpy as np
 
 class JsonHandler:
     
@@ -34,6 +35,11 @@ class JsonHandler:
                     elif var_format == "Uint8":
                         index = var_index
                         value = int(row.iloc[index])
+                        value = value * var_coeff + var_offset
+                    
+                    elif var_format == "Int8":
+                        index = var_index
+                        value = np.int8(row.iloc[index])
                         value = value * var_coeff + var_offset
 
                     elif var_format == "Time":

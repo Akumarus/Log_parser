@@ -21,25 +21,26 @@ class TableFrame(QWidget):
         font.setBold(True)
         self.table.horizontalHeader().setFont(font)
     
-    def delete_table(self):
-        """Удаляет текущую таблицу (вкладку)"""
-        current_index = self.tab_widget.currentIndex()
-        if current_index != -1:
-            widget_to_remove = self.tab_widget.widget(current_index)
-            self.tab_widget.removeTab(current_index)
-            widget_to_remove.deleteLater()
-            print("Таблица удалена.")
+    def delete_all_table(tab_widget):
+        count = tab_widget.count()
+        for i in range(count - 1, -1, -1):
+            current_widget = tab_widget.widget(i)
+            tab_widget.removeTab(i)
+            current_widget.deleteLater()
 
+    def add_table_tab(self, df, tab_widget, tab_name="All logs"):
+        """Добавляет вкладку с таблицей"""
+        header_name = df.columns
+        rows, columns = df.shape
+        df_list = df.values.tolist()
 
-    def adjust_column_widths(self, headers):
-        """Настраивает ширину столбцов на основе длины текста в заголовках"""
-        font = self.table.horizontalHeader().font()  # Получаем шрифт заголовка
-        font_metrics = QFontMetrics(font)
+        # Создаем фрейм с таблицей
+        self.table_frame = TableFrame(self)
+        self.table_frame.set_table_size(rows, columns, header_name)
+        self.table_frame.draw_table(df_list)
 
-        for col, header in enumerate(headers):
-            text_width = font_metrics.width(header)  # Рассчитываем ширину текста
-            self.table.setColumnWidth(col, text_width + 20)  # Добавляем запас (20 пикселей)
-            print(text_width)
+        # Добавляем вкладку
+        tab_widget.addTab(self.table_frame, tab_name)
 
     def set_table_size(self, rows: int, columns: int, headers):
         import pandas as pd
@@ -49,7 +50,7 @@ class TableFrame(QWidget):
         if headers is not None and len(headers) > 0:  # Проверка на наличие заголовков
             if isinstance(headers, pd.Index):  # Если это pandas.Index, преобразуем в список
                 headers = headers.tolist()
-                print(headers)
+                #print(headers)
         self.table.setHorizontalHeaderLabels(headers)
 
         # Подстройка ширины столбцов по тексту заголовков

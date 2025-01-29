@@ -53,7 +53,7 @@
             },
             {
                 "byte" : 9,
-                "variable" : "счетчик количества сообщений",
+                "variable" : "Счетчик количества сообщений",
                 "format" : "Uint8",
                 "unit" : null,
                 "coefficient" : 1,
@@ -123,7 +123,7 @@
             },
             {
                 "byte" : 9,
-                "variable" : "счетчик количества сообщений",
+                "variable" : "Счетчик количества сообщений",
                 "format" : "Uint8",
                 "unit" : null,
                 "coefficient" : 1,
@@ -188,7 +188,7 @@
                 "variable" : "Напряжение АКБ",
                 "format" : "Uint8",
                 "unit" : "В",
-                "coefficient" : 4,
+                "coefficient" : 0.25,
                 "offset" : 0
             },
             {
@@ -240,7 +240,7 @@
             {
                 "byte" : 2,
                 "variable" : "Момент переднего правого колеса",
-                "format" : "Uint8",
+                "format" : "Int8",
                 "unit" : "%",
                 "coefficient" : 1,
                 "offset" : 0
@@ -248,7 +248,7 @@
             {
                 "byte" : 3,
                 "variable" : "Момент заднего правого колеса",
-                "format" : "Uint8",
+                "format" : "Int8",
                 "unit" : "%",
                 "coefficient" : 1,
                 "offset" : 0
@@ -256,7 +256,7 @@
             {
                 "byte" : 4,
                 "variable" : "Момент переднего левого колеса",
-                "format" : "Uint8",
+                "format" : "Int8",
                 "unit" : "%",
                 "coefficient" : 1,
                 "offset" : 0
@@ -264,7 +264,7 @@
             {
                 "byte" : 5,
                 "variable" : "Момент заднего левого колеса",
-                "format" : "Uint8",
+                "format" : "Int8",
                 "unit" : "%",
                 "coefficient" : 1,
                 "offset" : 0
@@ -275,7 +275,7 @@
                 "format" : "Uint8",
                 "unit" : "град",
                 "coefficient" : 1,
-                "offset" : 40
+                "offset" : -40
             },
             {
                 "byte" : 7,
@@ -283,7 +283,7 @@
                 "format" : "Uint8",
                 "unit" : "град",
                 "coefficient" : 1,
-                "offset" : 40
+                "offset" : -40
             },
             {
                 "byte" : 8,
@@ -399,7 +399,7 @@
                 "format" : "Uint8",
                 "unit" : null,
                 "coefficient" : 1,
-                "offset" : 50
+                "offset" : -50
             },
             {
                 "byte" : 5,
@@ -407,7 +407,7 @@
                 "format" : "Uint8",
                 "unit" : null,
                 "coefficient" : 1,
-                "offset" : 50
+                "offset" : -50
             },
             {
                 "byte" : 6,
@@ -477,7 +477,7 @@
                 "format" : "Uint8",
                 "unit" : null,
                 "coefficient" : 1,
-                "offset" : 50
+                "offset" : -50
             },
             {
                 "byte" : 5,
@@ -547,7 +547,7 @@
                 "format" : "Uint8",
                 "unit" : "Град",
                 "coefficient" : 1,
-                "offset" : 50
+                "offset" : -50
             },
             {
                 "byte" : 3,
